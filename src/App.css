@@ -1,0 +1,294 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, Arial, sans-serif;
+}
+
+.game-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #101827, #17243b, #111827);
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 16px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 28px;
+  padding: 35px 30px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+}
+
+.game-header {
+  margin-bottom: 30px;
+}
+
+.game-logo {
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 900;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+}
+
+.game-subtitle {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #8b9bb9;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.game-header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.game-description {
+  font-size: 13px;
+  color: #91a0b9;
+}
+
+.player-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.player-card {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  background: #202c40;
+  padding: 13px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+  transition: 0.3s;
+}
+
+.active-player {
+  background: #263653;
+  border-color: #667ff5;
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.12);
+}
+
+.player-symbol {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #172235;
+  border-radius: 12px;
+  font-size: 23px;
+  font-weight: 900;
+}
+
+.x-symbol {
+  color: #60a5fa;
+}
+
+.o-symbol {
+  color: #c084fc;
+}
+
+.player-card h3 {
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.player-card p {
+  color: #91a0b9;
+  font-size: 10px;
+}
+
+.vs-text {
+  font-size: 11px;
+  font-weight: 800;
+  color: #71809b;
+}
+
+.game-status {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.game-status h2 {
+  font-size: 17px;
+}
+
+.x-text {
+  color: #60a5fa;
+}
+
+.o-text {
+  color: #c084fc;
+}
+
+.winner-message {
+  color: #4ade80;
+}
+
+.draw-message {
+  color: #fbbf24;
+}
+
+.turn-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  margin-left: 10px;
+  animation: pulse 1s infinite;
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 25px;
+}
+
+.game-cell {
+  aspect-ratio: 1 / 1;
+  border: 1px solid #35445e;
+  background: #202c40;
+  border-radius: 18px;
+  font-size: 55px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.game-cell:empty {
+  color: white;
+}
+
+.game-cell:hover:not(:disabled) {
+  background: #2d3d59;
+  border-color: #7c8ff8;
+  transform: translateY(-3px);
+}
+
+.game-cell:disabled {
+  cursor: default;
+}
+
+.cell-x {
+  color: #60a5fa;
+  text-shadow: 0 0 20px rgba(96, 165, 250, 0.2);
+}
+
+.cell-o {
+  color: #c084fc;
+  text-shadow: 0 0 20px rgba(192, 132, 252, 0.2);
+}
+
+.restart-button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.restart-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.25);
+}
+
+.game-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 22px;
+  color: #71809b;
+  font-size: 11px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    padding: 25px 17px;
+    border-radius: 22px;
+  }
+
+  .game-header h1 {
+    font-size: 27px;
+  }
+
+  .player-section {
+    gap: 6px;
+  }
+
+  .player-card {
+    padding: 10px 7px;
+    gap: 7px;
+  }
+
+  .player-symbol {
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+  }
+
+  .player-card h3 {
+    font-size: 11px;
+  }
+
+  .player-card p {
+    font-size: 9px;
+  }
+
+  .game-board {
+    gap: 8px;
+  }
+
+  .game-cell {
+    border-radius: 13px;
+    font-size: 43px;
+  }
+
+  .game-footer {
+    font-size: 9px;
+  }
+}
